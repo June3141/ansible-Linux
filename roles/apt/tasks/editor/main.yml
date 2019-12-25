@@ -1,0 +1,6 @@
+---
+- name: install vim and neovim
+  apt:
+    name:
+      - "vim"
+      - "neovim"

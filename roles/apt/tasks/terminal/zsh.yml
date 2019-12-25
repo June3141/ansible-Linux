@@ -1,0 +1,7 @@
+---
+- name: install zsh
+  apt:
+    name: "zsh"
+
+- name: set zsh as default shell
+  command: "chsh -s $(which zsh) "
