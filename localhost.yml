@@ -12,9 +12,11 @@
 
     - name: Set tmp dir
       set_fact: "ansible_tmpDir={{ ansible_home }}/Desktop/ansibleTmp"
+
+    - name: make dir for ansible works
       file:
         path: "{{ ansible_tmpDir }}"
-        status: "directory"
+        state: "directory"
 
   roles:
     - "apt"
