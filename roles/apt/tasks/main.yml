@@ -1,4 +1,8 @@
 ---
+- name: install curl
+  apt:
+    name: "curl"
+
 - import_tasks: "./editor/main.yml"
 - import_tasks: "./lang/main.yml"
 - import_tasks: "./terminal/main.yml"
