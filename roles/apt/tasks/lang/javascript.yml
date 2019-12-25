@@ -4,6 +4,10 @@
     name: npm
 
 - name: Download nvm install.sh
+  file:
+    path: "{{ ansible_tmpDir }}/nvm"
+    state: "directory"
   get_url:
     url: "https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh"
+    dest: "{{ ansible_tmpDir }}/nvm/"
     mode: 0755

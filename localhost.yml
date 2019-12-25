@@ -2,6 +2,20 @@
 - hosts: localhost
   connection: local
   become: yes
+  pre_tasks:
+    - name: Get ansible_user home directory
+      shell: 'getent passwd "{{ansible_ssh_user}}" | cut -d: -f6'
+      register: ansible_home_result
+
+    - name: Set the fact for the other scripts to use
+      set_fact: ansible_home='{{ansible_home_result.stdout}}'
+
+    - name: Set tmp dir
+      set_fact: "ansible_tmpDir={{ ansible_home }}/Desktop/ansibleTmp"
+      file:
+        path: "{{ ansible_tmpDir }}"
+        status: "directory"
+
   roles:
     - "apt"
     - "vscode"
