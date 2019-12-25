@@ -4,5 +4,16 @@
     name: "curl"
 
 - import_tasks: "./editor/main.yml"
+  tags:
+    - apt
+    - editor
+
 - import_tasks: "./lang/main.yml"
+  tags:
+    - apt
+    - lang
+
 - import_tasks: "./terminal/main.yml"
+  tags:
+    - apt
+    - sterminal
