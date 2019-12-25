@@ -1,4 +1,6 @@
-# Setting My pc environment for dev
+# Set up My Linux pc for dev
+
+ver 0.1 : prototype for ubuntu
 
 ## how to install
 
