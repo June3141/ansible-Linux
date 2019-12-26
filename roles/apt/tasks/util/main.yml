@@ -1,9 +1,4 @@
 ---
-- name: install util tools.
-  apt:
-    name:
-      - "curl"
-      - "gdebi"
-      - "apt-transport-https"
-    update_cache: yes
-    install_recommends: yes
+- import_tasks: "./cliTools.yml"
+
+- import_tasks: "./blowser.yml"
