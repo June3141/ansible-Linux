@@ -13,4 +13,4 @@
 - name: install VS Code (apt)
   apt:
     name: "code"
-    update_cahce: yes
+    update_cache: yes
