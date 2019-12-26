@@ -4,13 +4,11 @@
     name: npm
 
 - name: mkdir for nvm install.
-  become_user: "{{ ansible_user }}"
   file:
     path: "{{ ansible_tmpDir }}/nvm"
     state: "directory"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    mode: 644
 
 - name: Download nvm install.sh.
   get_url:
@@ -19,9 +17,9 @@
     mode: 0755
 
 - name: install nvm.
-  become_user: "{{ ansible_user }}"
   shell: "{{ ansible_tmpDir }}/nvm/install.sh"
+  become_user: "{{ ansible_user }}"
 
 - name: install node with using nvm.
-  become_user: "{{ ansible_user }}"
   shell: "{{ ansible_home  }}/.nvm/nvm.sh; nvm install --lts; nvm alias default 'lts/*'"
+  become_user: "{{ ansible_user }}"
