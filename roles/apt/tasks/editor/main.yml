@@ -1,6 +1,8 @@
 ---
 - import_tasks: "./vim.yml"
-  tag: vim
+  tags:
+    - vim
 
 - import_tasks: "./vscode.yml"
-  tag: vscode
+  tags:
+    - vscode
