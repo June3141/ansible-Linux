@@ -1,0 +1,16 @@
+---
+- name: install key for vscode
+  apt_key:
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+    state: present
+
+- name: install vscodee repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    filename: vscode
+    state: present
+
+- name: install VS Code (apt)
+  apt:
+    name: "code"
+    update_cahce: yes

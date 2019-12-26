@@ -1,5 +1,13 @@
-- name: install curl
+- name: Upgrade all packages to the latest version.
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+
+- name: install util tools.
   apt:
     name:
       - "curl"
       - "gdebi"
+      - "apt-transport-https"
+    update_cahce: yes
