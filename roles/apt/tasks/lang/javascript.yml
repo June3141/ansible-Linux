@@ -20,5 +20,47 @@
   become: false
 
 - name: install node with using nvm.
-  shell: /bin/bash -lc "{{ ansible_home }}/.nvm/nvm.sh; nvm install --lts; nvm alias default 'lts/*'"
+  shell: >
+    /bin/bash -lc
+    "source {{ ansible_home }}/.nvm/nvm.sh; nvm install --lts; nvm alias default 'lts/*'"
   become: false
+
+- name: install node.js packages "TypeScript" globally.
+  npm:
+    global: yes
+    name: "typescript"
+
+- name: install node.js packages "create-react-app" globally.
+  npm:
+    global: yes
+    name: "create-react-app"
+
+- name: install node.js packages "react-native-cli" globally.
+  npm:
+    global: yes
+    name: "react-native-cli"
+
+- name: install node.js packages "express-generator" globally.
+  npm:
+    global: yes
+    name: "express-generator"
+
+- name: install node.js packages "pm2" globally.
+  npm:
+    global: yes
+    name: "pm2"
+
+- name: install node.js packages "git-hooks" globally.
+  npm:
+    global: yes
+    name: "git-hooks"
+
+- name: install node.js packages "npm-check-updates" globally.
+  npm:
+    global: yes
+    name: "npm-check-updates"
+
+- name: install node.js packages "serve" globally.
+  npm:
+    global: yes
+    name: "serve"
