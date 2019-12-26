@@ -20,4 +20,3 @@
 
   roles:
     - "apt"
-    - "vscode"

@@ -1,6 +1,6 @@
 ---
-- name: install vim and neovim
-  apt:
-    name:
-      - "vim"
-      - "neovim"
+- import_tasks: "./vim.yml"
+  tag: vim
+
+- import_tasks: "./vscode.yml"
+  tag: vscode
