@@ -1,0 +1,12 @@
+---
+- name: mkdir for pyenv
+  become: false
+  file:
+    path: "{{ ansible_home }}/.pyenv"
+    state: directory
+
+- name: install pyenv
+  become: false
+  git:
+    repo: "https://github.com/pyenv/pyenv.git"
+    dest: "{{ ansible_home }}/.pyenv"
