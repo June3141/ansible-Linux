@@ -1,20 +1,24 @@
 ---
-- name: install npm
+- name: install npm.
   apt:
     name: npm
 
-- name: mkdir for nvm install
+- name: mkdir for nvm install.
   become_user: "{{ ansible_user }}"
   file:
     path: "{{ ansible_tmpDir }}/nvm"
     state: "directory"
 
-- name: Download nvm install.sh
+- name: Download nvm install.sh.
   get_url:
     url: "https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh"
     dest: "{{ ansible_tmpDir }}/nvm/"
     mode: 0755
 
-- name: install nvm
+- name: install nvm.
   become_user: "{{ ansible_user }}"
   shell: "{{ ansible_tmpDir }}/nvm/install.sh"
+
+- name: install node with using nvm.
+  become_user: "{{ ansible_user }}"
+  shell: "{{ ansible_home  }}/.nvm/nvm.sh; nvm install --lts; nvm alias default 'lts/*'"
