@@ -14,11 +14,10 @@
       set_fact: "ansible_tmpDir={{ ansible_home }}/Desktop/ansibleTmp"
 
     - name: make dir for ansible works
+      become: false
       file:
         path: "{{ ansible_tmpDir }}"
         state: "directory"
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
 
   roles:
     - "apt"
