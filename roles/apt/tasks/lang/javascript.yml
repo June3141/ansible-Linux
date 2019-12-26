@@ -8,6 +8,9 @@
   file:
     path: "{{ ansible_tmpDir }}/nvm"
     state: "directory"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 644
 
 - name: Download nvm install.sh.
   get_url:
