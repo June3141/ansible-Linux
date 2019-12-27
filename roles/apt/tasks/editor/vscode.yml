@@ -14,3 +14,8 @@
   apt:
     name: "code"
     update_cache: yes
+
+- name: install vscode extensions
+  shell: code --install-extension {{ item }}
+  become: false
+  with_items: "{{ lookup('file', './vscodeExtensions.txt') }}"
