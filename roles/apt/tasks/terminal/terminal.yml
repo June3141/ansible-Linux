@@ -1,4 +1,9 @@
 ---
+- name: add apt repository to install alacritty
+  apt_repository:
+    repo: "ppa:mmstick76/alacritty"
+    state: present
+
 - name: install alacritty
   apt:
     name: "alacritty"

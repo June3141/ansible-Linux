@@ -1,3 +1,8 @@
 ---
 - import_tasks: "./javascript.yml"
-  tags: javascript
+  tags:
+    - javascript
+
+- import_tasks: "./python.yml"
+  tags:
+    - python

@@ -4,7 +4,8 @@
     name: "zsh"
 
 - name: set zsh as default shell
-  command: "chsh -s $(which zsh) "
+  become: false
+  command: "chsh -s $(which zsh)"
 
 - name: mkdir for zplugin
   become: false

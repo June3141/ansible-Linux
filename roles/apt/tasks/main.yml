@@ -18,3 +18,8 @@
   tags:
     - apt
     - sterminal
+
+- import_tasks: "./devtools/main.yml"
+  tags:
+    - apt
+    - devtools

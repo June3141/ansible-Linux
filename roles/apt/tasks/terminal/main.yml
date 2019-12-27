@@ -1,9 +1,8 @@
 ---
-- name: add apt repository to install alacritty
-  apt_repository:
-    repo: "ppa:mmstick76/alacritty"
-    state: present
+- import_tasks: "./terminal.yml"
+  tags:
+    - terminal
 
-- name: install alacritty
-  apt:
-    name: "alacritty"
+- import_tasks: "./zsh.yml"
+  tags:
+    - zsh
