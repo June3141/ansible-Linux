@@ -5,3 +5,19 @@
 
 - name: set zsh as default shell
   command: "chsh -s $(which zsh) "
+
+- name: mkdir for zplugin
+  become: false
+  file:
+    path: "{{ ansible_tmpDir }}/zplugin"
+    state: directory
+
+- name: Download zplugin install.sh
+  get_url:
+    url: https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh
+    dest: "{{ ansible_tmpDir }}/zplugin"
+    mode: 0755
+
+- name: intall zplugin
+  become: false
+  shell: "{{ ansible_tmpDir }}/zplugin/install.sh"
