@@ -2,3 +2,7 @@
 - import_tasks: "./android.yml"
   tags:
     - android
+
+- import_tasks: "./docker.yml"
+  tags:
+    - docker

@@ -1,0 +1,28 @@
+---
+- name: Add docker GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+- name: Add apt repository for docker
+  apt_repository:
+    repo: >
+      "
+      deb [arch=amd64]
+      https://download.docker.com/linux/ubuntu
+      {{ ansible_distribution_release }}
+      stable
+      "
+
+- name: install Docker packages
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    update_cache: yes
+
+- name: install docker-compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    dest: /usr/local/bin/docker-compose
+    mode: +x

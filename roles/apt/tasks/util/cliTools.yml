@@ -5,5 +5,7 @@
       - "curl"
       - "gdebi"
       - "apt-transport-https"
+      - "software-properties-common"
+      - "ca-certificates"
     update_cache: yes
     install_recommends: yes
