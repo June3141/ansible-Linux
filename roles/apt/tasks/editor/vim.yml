@@ -12,10 +12,11 @@
     state: directory
 
 - name: Download dein.vim install.sh
+  become: false
   get_url:
     url: "https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh"
     dest: "{{ ansible_tmpDir }}/dein"
-    mode: 0755
+    mode: +x
 
 - name: mkdir for dein.vim
   become: false
@@ -25,4 +26,4 @@
 
 - name: install dein.vim
   become: false
-  shell: "{{ ansible_tmpDir }}/dein/install.sh ~/.cache/dein"
+  shell: "{{ ansible_tmpDir }}/dein/installer.sh ~/.cache/dein"

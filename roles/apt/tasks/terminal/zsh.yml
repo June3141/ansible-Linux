@@ -13,10 +13,11 @@
     state: directory
 
 - name: Download zplugin install.sh
+  become: false
   get_url:
     url: https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh
     dest: "{{ ansible_tmpDir }}/zplugin"
-    mode: 0755
+    mode: +x
 
 - name: intall zplugin
   become: false

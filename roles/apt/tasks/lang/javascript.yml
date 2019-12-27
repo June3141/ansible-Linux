@@ -10,20 +10,21 @@
     state: "directory"
 
 - name: Download nvm install.sh.
+  become: false
   get_url:
     url: "https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh"
     dest: "{{ ansible_tmpDir }}/nvm/"
-    mode: 0755
+    mode: +x
 
 - name: install nvm.
-  shell: "{{ ansible_tmpDir }}/nvm/install.sh"
   become: false
+  shell: "{{ ansible_tmpDir }}/nvm/install.sh"
 
 - name: install node with using nvm.
+  become: false
   shell: >
     /bin/bash -lc
     "source {{ ansible_home }}/.nvm/nvm.sh; nvm install --lts; nvm alias default 'lts/*'"
-  become: false
 
 - name: install node.js packages "TypeScript" globally.
   npm:

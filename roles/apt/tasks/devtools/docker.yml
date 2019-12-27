@@ -19,6 +19,7 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - docker.ioß
     update_cache: yes
 
 - name: install docker-compose
