@@ -1,4 +1,8 @@
 ---
+- name: install python3-dev
+  apt:
+    name: "python3-dev"
+
 - name: mkdir for pyenv
   become: false
   file:
