@@ -4,8 +4,9 @@
     name: "zsh"
 
 - name: set zsh as default shell
-  become: false
-  command: "chsh -s $(which zsh)"
+  command: >
+    /bin/bash -lc
+    "chsh -s $(which zsh) {{ ansible_user }}"
 
 - name: mkdir for zplugin
   become: false
