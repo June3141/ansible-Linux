@@ -2,3 +2,5 @@
 - import_tasks: "./cliTools.yml"
 
 - import_tasks: "./blowser.yml"
+
+- import_tasks: "./java.yml"
