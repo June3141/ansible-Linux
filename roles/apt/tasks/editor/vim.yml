@@ -4,3 +4,25 @@
     name:
       - "vim"
       - "neovim"
+
+- name: mkdir for dein.vim install.sh
+  become: false
+  file:
+    path: "{{ ansible_tmpDir }}/dein"
+    state: directory
+
+- name: Download dein.vim install.sh
+  get_url:
+    url: "https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh"
+    dest: "{{ ansible_tmpDir }}/dein"
+    mode: 0755
+
+- name: mkdir for dein.vim
+  become: false
+  file:
+    path: "{{ ansible_home }}/.cache/dein"
+    state: directory
+
+- name: install dein.vim
+  become: false
+  shell: "{{ ansible_tmpDir }}/dein/install.sh ~/.cache/dein"
