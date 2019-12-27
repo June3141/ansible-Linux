@@ -5,13 +5,7 @@
 
 - name: Add apt repository for docker
   apt_repository:
-    repo: >
-      "
-      deb [arch=amd64]
-      https://download.docker.com/linux/ubuntu
-      {{ ansible_distribution_release }}
-      stable
-      "
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
 
 - name: install Docker packages
   apt:
@@ -19,7 +13,7 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
-      - docker.ioß
+      - docker.io
     update_cache: yes
 
 - name: install docker-compose
